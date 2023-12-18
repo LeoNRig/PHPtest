@@ -19,7 +19,12 @@
 
             $loadName.='Controller';
 
-            $this->controller = new $loadName();
+            if(file_exists($loadName.'php')){
+                $this->controller = new $loadName();
+            }else{
+                include('Views/pages/404.php');
+                die();
+            }
 
         }
 
