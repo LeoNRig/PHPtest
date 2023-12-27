@@ -8,7 +8,7 @@
 
         private function setApp(){
 
-            $loadName = 'mvc\Controller';
+            $loadName = 'mvc\Controller\\';
             $url = explode('/', @$_GET['url']);
 
             if($url[0] == ''){
@@ -22,6 +22,7 @@
             if(file_exists($loadName.'php')){
                 $this->controller = new $loadName();
             }else{
+                echo $loadName;
                 include('Views/pages/404.php');
                 die();
             }
